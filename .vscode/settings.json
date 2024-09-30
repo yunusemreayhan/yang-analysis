@@ -1,0 +1,14 @@
+{
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-u>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-p>": false,
+        "<C-s-p>": false,
+        "<C-k>": false
+    },
+    "editor.stickyScroll.maxLineCount": 20,
+    "terminal.integrated.stickyScroll.maxLineCount": 10,
+    "terminal.integrated.scrollback": 99999
+}

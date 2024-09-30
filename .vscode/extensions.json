@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "marko2276.yang",
+        "igorsbitnev.error-gutters",
+        "usernamehw.errorlens",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "ms-python.autopep8",
+        "ms-python.pylint",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-python.flake8"
+    ]
+}

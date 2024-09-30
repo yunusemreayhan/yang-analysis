@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "validate root ieee yang files",
+            "type": "shell",
+            "command": "source ~/err-yang/bin/activate && pyang ${workspaceFolder}/ieee/*.yang",
+            "problemMatcher": []
+        },
+        {
+            "label": "prepare venv",
+            "type": "shell",
+            "command": "sudo apt install python3-full xsltproc && python3 -m venv ~/err-yang/ && source ~/err-yang/bin/activate && pip3 install pyang && pip3 install setuptools && pip3 install ns && pip3 install ncclient",
+            "problemMatcher": []
+        },
+        {
+            "label": "run netconfshell.py",
+            "type": "shell",
+            "command": "source ~/err-yang/bin/activate && python3 ${workspaceFolder}/netconfshell.py ${input:ip_address}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "ip_address",
+            "description": "ip address of target machine"
+        }
+    ]
+}

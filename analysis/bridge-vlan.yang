@@ -1,0 +1,290 @@
+          container bridge-vlan {
+            when "not(derived-from-or-self(../../bridge-type, 'two-port-mac-relay-bridge'))" {
+              description
+                "Applies to non TPMRs.";
+            }
+            reference
+              "12.10 of IEEE Std 802.1Q-2022";
+
+            leaf version {
+              type uint16;
+              config false;
+              description
+                "The version number supported.";
+              reference
+                "12.10.1.3 of IEEE Std 802.1Q-2022";
+
+            }
+
+            leaf max-vids {
+              type uint16;
+              config false;
+              description
+                "The maximum number of VIDs supported.";
+              reference
+                "12.10.1.3 of IEEE Std 802.1Q-2022";
+
+            }
+
+            leaf override-default-pvid {
+              type boolean;
+              default "false";
+              config false;
+              description "Indicates if the default PVID can be overridden, and its egress status (VLAN-tagged or untagged) on each port.";
+              reference
+                "12.10.1.3 of IEEE Std 802.1Q-2022";
+
+            }
+
+            leaf protocol-template {
+              if-feature port-and-protocol-based-vlan;
+              type dot1qtypes:protocol-frame-format-type;
+              config false;
+              description
+                "The data-link encapsulation format or the detagged_frame_type in a Protocol Template";
+              reference
+                "12.10.1.7 of IEEE Std 802.1Q-2022";
+
+            }
+
+            leaf max-msti {
+              type uint16;
+              config false;
+              description "The maximum number of MSTIs supported within an MST region (i.e., the number of spanning tree instances that can be supported in addition to the CIST), for MST Bridges. For SST Bridges, this parameter may be either omitted or reported as 0.";
+              reference "12.10.1.7 of IEEE Std 802.1Q-2022";
+            }
+
+            list vlan {
+              key "vid";
+              description
+                "List of VLAN related configuration nodes associated with the Bridge.";
+              reference
+                "12.10.2 of IEEE Std 802.1Q-2022";
+
+              leaf vid {
+                type dot1qtypes:vlan-index-type;
+                description
+                  "The VLAN identifier to which this entry applies.";
+                reference
+                  "12.10.2 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf name {
+                type dot1qtypes:name-type;
+                description
+                  "A text string of up to 32 characters of locally determined significance.";
+                reference
+                  "12.10.2 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf-list untagged-ports {
+                type if:interface-ref;
+                config false;
+                description
+                  "The set of ports in the untagged set for this VID.";
+                reference
+                  "12.10.2.1.3, 8.8.2 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf-list egress-ports {
+                type if:interface-ref;
+                config false;
+                description
+                  "The set of egress ports in the member set for this VID.";
+                reference
+                  "12.10.2.1.3, 8.8.10 of IEEE Std 802.1Q-2022";
+
+              }
+            }  // list vlan
+
+            list protocol-group-database {
+              if-feature port-and-protocol-based-vlan;
+              key "db-index";
+              description
+                "List of the protocol group database entries.";
+              reference
+                "12.10.1.7, 6.12.3 of IEEE Std 802.1Q-2022";
+
+              leaf db-index {
+                type uint16;
+                description
+                  "The protocol group database index.";
+              }
+
+              leaf frame-format-type {
+                type dot1qtypes:protocol-frame-format-type;
+                description
+                  "The data-link encapsulation format or the detagged_frame_type in a Protocol Template";
+                reference
+                  "12.10.1.7 of IEEE Std 802.1Q-2022";
+
+              }
+
+              choice frame-format {
+                description
+                  "The identification of the protocol above the data-link layer in a Protocol Template. Depending on the frame type, the octet string will have one of the following values: - For ethernet, rfc1042 and snap8021H, this is the 16-bit (2-octet) IEEE 802 Clause 9.3 EtherType field. - For snapOther, this is the 40-bit (5-octet) PID. - For llcOther, this is the 2-octet IEEE 802.2 Link Service Access Point (LSAP) pair: first octet for Destination Service Access Point (DSAP) and second octet for Source Service Access Point (SSAP).";
+                reference
+                  "12.10.1.7 of IEEE Std 802.1Q-2022";
+
+                case ethernet-rfc1042-snap8021H {
+                  when "frame-format-type = 'Ethernet' or frame-format-type = 'rfc1042' or frame-format-type = 'snap8021H'" {
+                    description "Applies to Ethernet, RFC 1042, SNAP 8021H frame formats.";
+                  }
+                  description "Identifier used if Ethenet, RFC1042, or SNAP 8021H.";
+                  leaf ethertype {
+                    type dot1qtypes:ethertype-type;
+                    description "Format containing the 16-bit IEEE 802 EtherType field.";
+                    reference "9.3 of IEEE Std 802-2014";
+
+                  }
+                }  // case ethernet-rfc1042-snap8021H
+
+                case snap-other {
+                  when
+                    "frame-format-type = 'snapOther'" {
+                    description
+                      "Applies to Snap Other frame formats.";
+                  }
+                  description
+                    "Identifier used if SNAP other.";
+                  leaf protocol-id {
+                    type string {
+                      pattern
+                        '[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){4}';
+                    }
+                    description "Format containing the 40-bit protocol identifier (PID). The canonical representation uses uppercase characters.";
+                    reference "12.10.1.7.1 of IEEE Std 802.1Q-2022";
+
+                  }
+                }  // case snap-other
+
+                case llc-other {
+                  when "frame-format-type = 'llcOther'" {
+                    description "Applies to LLC Other frame formats";
+                  }
+                  description "Identifier used if LLC other.";
+                  container dsap-ssap-pairs {
+                    description "A pair of ISO/IEC 8802-2 DSAP and SSAP address field values, for matching frame formats of LLC_Other.";
+                    leaf llc-address {
+                      type string {
+                        pattern '[0-9a-fA-F]{2}-[0-9a-fA-F]{2}';
+                      }
+                      description "A pair of ISO/IEC 8802-2 DSAP and SSAP address field values, for matching frame formats of LLC_Other. The canonical representation uses uppercase characters.";
+                      reference "12.10.1.7.1 of IEEE Std 802.1Q-2022";
+
+                    }
+                  }  // container dsap-ssap-pairs
+                }  // case llc-other
+              }  // choice frame-format
+
+              leaf group-id {
+                type uint32;
+                description "Designates a group of protocols in the Protocol Group Database.";
+                reference "6.12.2 of IEEE Std 802.1Q-2022";
+
+              }
+            }  // list protocol-group-database
+
+            list vid-to-fid-allocation {
+              key "vids";
+              description "This list allows inquiries about VID to FID allocations.";
+              leaf vids {
+                type dot1qtypes:vid-range-type;
+                description "Range of VLAN identifiers.";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf fid {
+                type uint32;
+                config false;
+                description "The Filtering Database used by a set of VIDs.";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf allocation-type {
+                type enumeration {
+                  enum "undefined" {
+                    value 0;
+                    description "No allocation defined.";
+                  }
+                  enum "fixed" {
+                    value 1;
+                    description "A fixed allocation to FID is defined.";
+                  }
+                  enum "dynamic" {
+                    value 2;
+                    description "A dynamic allocation to FID is defined.";
+                  }
+                }
+                config false;
+                description "The type of allocation used";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+            }  // list vid-to-fid-allocation
+
+            list fid-to-vid-allocation {
+              key "fid";
+              description "The FID to VID allocations managed object models operations that inquire about FID to VID allocations.";
+              leaf fid {
+                type uint32;
+                description "The Filtering Database used by a set of VIDs.";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf allocation-type {
+                type enumeration {
+                  enum "undefined" {
+                    value 0;
+                    description "No allocation defined.";
+                  }
+                  enum "fixed" {
+                    value 1;
+                    description "A fixed allocation to FID is defined.";
+                  }
+                  enum "dynamic" {
+                    value 2;
+                    description "A dynamic allocation to FID is defined.";
+                  }
+                }
+                config false;
+                description "The type of allocation used";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf-list vid {
+                type dot1qtypes:vlan-index-type;
+                config false;
+                description "The VLAN identifier to which this entry applies.";
+                reference "12.7.7 of IEEE Std 802.1Q-2022";
+
+              }
+            }  // list fid-to-vid-allocation
+
+            list vid-to-fid {
+              key "vid";
+              description "Fixed allocation of a VID to an FID. The underlying system will ensure that subsequent commands that make changes to the VID to FID mapping can override previous associations.";
+              reference "12.10.3.4, 12.10.3.5 of IEEE Std 802.1Q-2022";
+
+              leaf vid {
+                type dot1qtypes:vlan-index-type;
+                description "A list of VLAN identifier associated with a given database identifier (i.e., FID).";
+                reference "12.7.7 of IEEE Std 802.1Q-2022";
+
+              }
+
+              leaf fid {
+                type uint32;
+                description "The Filtering Database used by this VLAN";
+                reference "12.10.3 of IEEE Std 802.1Q-2022";
+
+              }
+            }  // list vid-to-fid
+          }  // container bridge-vlan
