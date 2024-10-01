@@ -1,7 +1,10 @@
 {
+    "vim.useCtrlKeys": true,
+    "vim.enableNeovim": true,
     "vim.handleKeys": {
         "<C-d>": true,
         "<C-u>": true,
+        "<C-b>": true,
         "<C-s>": false,
         "<C-z>": false,
         "<C-p>": false,
