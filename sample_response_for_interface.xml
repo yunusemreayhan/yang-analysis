@@ -1,0 +1,353 @@
+
+<?xml version="1.0" ?>
+<rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:13bdfc7c-6271-4097-b7ef-82364b82d9dd">
+        <data>
+                <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+                        <interface>
+                                <name>CT 1/1/1</name>
+                                <description>Free text for CT label</description>
+                                <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:microwaveCarrierTermination</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <oper-status>lower-layer-down</oper-status>
+                                <speed>0</speed>
+                                <carrier-id xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">not-specified</carrier-id>
+                                <tx-enabled xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">false</tx-enabled>
+                                <tx-frequency xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">0</tx-frequency>
+                                <rx-frequency xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">0</rx-frequency>
+                                <actual-rx-frequency xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">0</actual-rx-frequency>
+                                <actual-duplex-distance xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">0</actual-duplex-distance>
+                                <channel-separation xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">56000</channel-separation>
+                                <polarization xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">not-specified</polarization>
+                                <atpc xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">
+                                        <maximum-nominal-power>10.0</maximum-nominal-power>
+                                        <atpc-lower-threshold>-99.0</atpc-lower-threshold>
+                                        <atpc-upper-threshold>-30.0</atpc-upper-threshold>
+                                </atpc>
+                                <single xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">
+                                        <selected-cm xmlns:mw-types="urn:ietf:params:xml:ns:yang:ietf-microwave-types">mw-types:qam-4-strong</selected-cm>
+                                </single>
+                                <ct-performance-thresholds xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">
+                                        <received-level-alarm-threshold>-93.0</received-level-alarm-threshold>
+                                        <transmitted-level-alarm-threshold>-99.0</transmitted-level-alarm-threshold>
+                                        <ber-alarm-threshold>1e-6</ber-alarm-threshold>
+                                </ct-performance-thresholds>
+                                <if-loop xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">disabled</if-loop>
+                                <rf-loop xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">disabled</rf-loop>
+                        </interface>
+                        <interface>
+                                <name>LAN 1/0/4</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:lanInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>up</oper-status>
+                                <last-change>2024-05-25T22:59:25+02:00</last-change>
+                                <if-index>2134638596</if-index>
+                                <phys-address>98:a4:04:0c:33:fb</phys-address>
+                                <speed>1000000000</speed>
+                                <statistics>
+                                        <in-octets>5580589986</in-octets>
+                                        <in-unicast-pkts>795876</in-unicast-pkts>
+                                        <in-broadcast-pkts>29820436</in-broadcast-pkts>
+                                        <in-multicast-pkts>35965529</in-multicast-pkts>
+                                        <in-discards>6020675</in-discards>
+                                        <in-errors>0</in-errors>
+                                        <out-octets>92188177</out-octets>
+                                        <out-unicast-pkts>313986</out-unicast-pkts>
+                                        <out-broadcast-pkts>12583</out-broadcast-pkts>
+                                        <out-multicast-pkts>369770</out-multicast-pkts>
+                                        <out-discards>0</out-discards>
+                                        <out-errors>0</out-errors>
+                                </statistics>
+                                <synce xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>no-synce</mode>
+                                        <phy-role>auto</phy-role>
+                                </synce>
+                                <mdix xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>auto</mode>
+                                </mdix>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>c-vlan-bridge-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>2</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <auto-negotiation>
+                                                <enable>true</enable>
+                                        </auto-negotiation>
+                                        <duplex>full</duplex>
+                                        <speed>0.0</speed>
+                                        <flow-control>
+                                                <pause>
+                                                        <direction>disabled</direction>
+                                                </pause>
+                                                <force-flow-control>true</force-flow-control>
+                                        </flow-control>
+                                        <capabilities>
+                                                <auto-negotiation>true</auto-negotiation>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_10M</supported-speeds>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_100M</supported-speeds>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_1G</supported-speeds>
+                                        </capabilities>
+                                </ethernet>
+                        </interface>
+                        <interface>
+                                <name>LAN 1/0/5</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:lanInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>up</oper-status>
+                                <last-change>2024-08-28T10:14:13+02:00</last-change>
+                                <if-index>2134638597</if-index>
+                                <phys-address>98:a4:04:0c:33:fc</phys-address>
+                                <speed>1000000000</speed>
+                                <statistics>
+                                        <in-octets>217485744670</in-octets>
+                                        <in-unicast-pkts>361677005</in-unicast-pkts>
+                                        <in-broadcast-pkts>2151</in-broadcast-pkts>
+                                        <in-multicast-pkts>2595462374</in-multicast-pkts>
+                                        <in-discards>0</in-discards>
+                                        <in-errors>0</in-errors>
+                                        <out-octets>16802689530</out-octets>
+                                        <out-unicast-pkts>178529232</out-unicast-pkts>
+                                        <out-broadcast-pkts>925</out-broadcast-pkts>
+                                        <out-multicast-pkts>369762</out-multicast-pkts>
+                                        <out-discards>0</out-discards>
+                                        <out-errors>0</out-errors>
+                                </statistics>
+                                <synce xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>no-synce</mode>
+                                        <phy-role>auto</phy-role>
+                                </synce>
+                                <mdix xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>auto</mode>
+                                </mdix>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>provider-network-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>3</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <auto-negotiation>
+                                                <enable>true</enable>
+                                        </auto-negotiation>
+                                        <duplex>full</duplex>
+                                        <speed>0.0</speed>
+                                        <flow-control>
+                                                <pause>
+                                                        <direction>disabled</direction>
+                                                </pause>
+                                                <force-flow-control>true</force-flow-control>
+                                        </flow-control>
+                                        <capabilities>
+                                                <auto-negotiation>true</auto-negotiation>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_10M</supported-speeds>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_100M</supported-speeds>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_1G</supported-speeds>
+                                        </capabilities>
+                                </ethernet>
+                        </interface>
+                        <interface>
+                                <name>LAN 1/0/7</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:lanInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>up</oper-status>
+                                <last-change>2024-06-10T13:14:17+02:00</last-change>
+                                <if-index>2134638599</if-index>
+                                <phys-address>98:a4:04:0c:33:fe</phys-address>
+                                <speed>0</speed>
+                                <statistics>
+                                        <in-octets>0</in-octets>
+                                        <in-unicast-pkts>0</in-unicast-pkts>
+                                        <in-broadcast-pkts>0</in-broadcast-pkts>
+                                        <in-multicast-pkts>0</in-multicast-pkts>
+                                        <in-discards>0</in-discards>
+                                        <in-errors>0</in-errors>
+                                        <out-octets>0</out-octets>
+                                        <out-unicast-pkts>0</out-unicast-pkts>
+                                        <out-broadcast-pkts>0</out-broadcast-pkts>
+                                        <out-multicast-pkts>0</out-multicast-pkts>
+                                        <out-discards>0</out-discards>
+                                        <out-errors>0</out-errors>
+                                </statistics>
+                                <synce xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>no-synce</mode>
+                                        <phy-role>auto</phy-role>
+                                </synce>
+                                <mdix xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>auto</mode>
+                                </mdix>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>provider-network-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>6</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <auto-negotiation>
+                                                <enable>true</enable>
+                                        </auto-negotiation>
+                                        <duplex>full</duplex>
+                                        <speed>1.0</speed>
+                                        <flow-control>
+                                                <pause>
+                                                        <direction>disabled</direction>
+                                                </pause>
+                                                <force-flow-control>true</force-flow-control>
+                                        </flow-control>
+                                        <capabilities>
+                                                <auto-negotiation>true</auto-negotiation>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_1G</supported-speeds>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_2.5G</supported-speeds>
+                                        </capabilities>
+                                </ethernet>
+                        </interface>
+                        <interface>
+                                <name>LAN 1/0/8</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:lanInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>up</oper-status>
+                                <last-change>2024-06-10T13:14:21+02:00</last-change>
+                                <if-index>2134638600</if-index>
+                                <phys-address>98:a4:04:0c:33:ff</phys-address>
+                                <speed>0</speed>
+                                <statistics>
+                                        <in-octets>0</in-octets>
+                                        <in-unicast-pkts>0</in-unicast-pkts>
+                                        <in-broadcast-pkts>0</in-broadcast-pkts>
+                                        <in-multicast-pkts>0</in-multicast-pkts>
+                                        <in-discards>0</in-discards>
+                                        <in-errors>0</in-errors>
+                                        <out-octets>0</out-octets>
+                                        <out-unicast-pkts>0</out-unicast-pkts>
+                                        <out-broadcast-pkts>0</out-broadcast-pkts>
+                                        <out-multicast-pkts>0</out-multicast-pkts>
+                                        <out-discards>0</out-discards>
+                                        <out-errors>0</out-errors>
+                                </statistics>
+                                <synce xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>no-synce</mode>
+                                        <phy-role>auto</phy-role>
+                                </synce>
+                                <mdix xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">
+                                        <mode>auto</mode>
+                                </mdix>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>provider-network-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>7</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <auto-negotiation>
+                                                <enable>true</enable>
+                                        </auto-negotiation>
+                                        <duplex>full</duplex>
+                                        <speed>1.0</speed>
+                                        <flow-control>
+                                                <pause>
+                                                        <direction>disabled</direction>
+                                                </pause>
+                                                <force-flow-control>true</force-flow-control>
+                                        </flow-control>
+                                        <capabilities>
+                                                <auto-negotiation>true</auto-negotiation>
+                                                <supported-speeds xmlns="urn:rdns:com:ericsson:oammodel:ericsson-lan-mini-link">ETH_IF_SPEED_CAP_1G</supported-speeds>
+                                        </capabilities>
+                                </ethernet>
+                        </interface>
+                        <interface>
+                                <name>LAN-DCN 1/0/0</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:lanDcnInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>enabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>up</oper-status>
+                                <last-change>2024-05-25T22:59:08+02:00</last-change>
+                                <if-index>2134671360</if-index>
+                                <phys-address>98:a4:04:0c:33:f9</phys-address>
+                                <speed>100000000</speed>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>c-vlan-bridge-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>4</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <duplex>full</duplex>
+                                        <flow-control>
+                                                <force-flow-control>false</force-flow-control>
+                                        </flow-control>
+                                </ethernet>
+                        </interface>
+                        <interface>
+                                <name>RLT 1/1/1</name>
+                                <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:microwaveRadioLinkTerminal</type>
+                                <enabled>true</enabled>
+                                <oper-status>down</oper-status>
+                                <speed>0</speed>
+                                <id xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">RLT 1/1/1</id>
+                                <mode xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link" xmlns:mw-types="urn:ietf:params:xml:ns:yang:ietf-microwave-types">mw-types:one-plus-zero</mode>
+                                <carrier-terminations xmlns="urn:ietf:params:xml:ns:yang:ietf-microwave-radio-link">CT 1/1/1</carrier-terminations>
+                        </interface>
+                        <interface>
+                                <name>WAN 1/1/1</name>
+                                <description/>
+                                <type xmlns:eiml="urn:rdns:com:ericsson:oammodel:ericsson-interface-mini-link">eiml:wanInterface</type>
+                                <enabled>true</enabled>
+                                <link-up-down-trap-enable>disabled</link-up-down-trap-enable>
+                                <admin-status>up</admin-status>
+                                <oper-status>down</oper-status>
+                                <last-change>2024-09-30T14:32:19+02:00</last-change>
+                                <if-index>2134646913</if-index>
+                                <phys-address>98:a4:04:0c:33:fa</phys-address>
+                                <speed>0</speed>
+                                <statistics>
+                                        <in-octets>0</in-octets>
+                                        <in-unicast-pkts>0</in-unicast-pkts>
+                                        <in-broadcast-pkts>0</in-broadcast-pkts>
+                                        <in-multicast-pkts>0</in-multicast-pkts>
+                                        <in-discards>0</in-discards>
+                                        <in-errors>0</in-errors>
+                                        <out-octets>0</out-octets>
+                                        <out-unicast-pkts>0</out-unicast-pkts>
+                                        <out-broadcast-pkts>0</out-broadcast-pkts>
+                                        <out-multicast-pkts>0</out-multicast-pkts>
+                                        <out-discards>0</out-discards>
+                                        <out-errors>0</out-errors>
+                                </statistics>
+                                <bridge-port xmlns="urn:ieee:std:802.1Q:yang:ieee802-dot1q-bridge">
+                                        <component-name>DEFAULT</component-name>
+                                        <port-type>provider-network-port</port-type>
+                                        <pvid>1</pvid>
+                                        <enable-ingress-filtering>true</enable-ingress-filtering>
+                                        <port-number>1</port-number>
+                                </bridge-port>
+                                <ethernet xmlns="urn:ieee:std:802.3:yang:ieee802-ethernet-interface">
+                                        <duplex>full</duplex>
+                                        <flow-control>
+                                                <force-flow-control>false</force-flow-control>
+                                        </flow-control>
+                                </ethernet>
+                        </interface>
+                </interfaces>
+        </data>
+</rpc-reply>
