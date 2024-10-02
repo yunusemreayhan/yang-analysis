@@ -13,5 +13,7 @@
     },
     "editor.stickyScroll.maxLineCount": 20,
     "terminal.integrated.stickyScroll.maxLineCount": 10,
-    "terminal.integrated.scrollback": 99999
+    "terminal.integrated.scrollback": 99999,
+    "workbench.editor.wrapTabs": true,
+    "workbench.colorTheme": "Visual Studio Light"
 }
