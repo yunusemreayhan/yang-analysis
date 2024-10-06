@@ -9,6 +9,10 @@
         "ms-python.autopep8",
         "ms-python.pylint",
         "visualstudioexptteam.vscodeintellicode",
-        "ms-python.flake8"
+        "ms-python.flake8",
+        "ms-toolsai.jupyter",
+        "dotjoshjohnson.xml",
+        "codeium.codeium",
+        "redhat.vscode-xml"
     ]
 }

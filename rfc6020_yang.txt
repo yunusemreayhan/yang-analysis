@@ -5006,20 +5006,20 @@ RFC 6020                          YANG                      October 2010
 
 7.13.4.  XML Mapping Rules
 
-   An rpc node is encoded as a child XML element to the <rpc> element
-   defined in [RFC4741].  The element's local name is the rpc's
-   identifier, and its namespace is the module's XML namespace (see
-   Section 7.1.3).
+An rpc node is encoded as a child XML element to the <rpc> element
+defined in [RFC4741].  The element's local name is the rpc's
+identifier, and its namespace is the module's XML namespace (see
+Section 7.1.3).
 
-   Input parameters are encoded as child XML elements to the rpc node's
-   XML element, in the same order as they are defined within the "input"
-   statement.
+Input parameters are encoded as child XML elements to the rpc node's
+XML element, in the same order as they are defined within the "input"
+statement.
 
-   If the RPC operation invocation succeeded, and no output parameters
-   are returned, the <rpc-reply> contains a single <ok/> element defined
-   in [RFC4741].  If output parameters are returned, they are encoded as
-   child elements to the <rpc-reply> element defined in [RFC4741], in
-   the same order as they are defined within the "output" statement.
+If the RPC operation invocation succeeded, and no output parameters
+are returned, the <rpc-reply> contains a single <ok/> element defined
+in [RFC4741].  If output parameters are returned, they are encoded as
+child elements to the <rpc-reply> element defined in [RFC4741], in
+the same order as they are defined within the "output" statement.
 
 
 
@@ -5046,25 +5046,25 @@ RFC 6020                          YANG                      October 2010
 
 7.13.5.  Usage Example
 
-   The following example defines an RPC operation:
+The following example defines an RPC operation:
 
-     module rock {
-         namespace "http://example.net/rock";
-         prefix "rock";
+   module rock {
+      namespace "http://example.net/rock";
+      prefix "rock";
 
-         rpc rock-the-house {
-             input {
-                 leaf zip-code {
-                     type string;
-                 }
-             }
-         }
-     }
+      rpc rock-the-house {
+            input {
+               leaf zip-code {
+                  type string;
+               }
+            }
+      }
+   }
 
-   A corresponding XML instance example of the complete rpc and rpc-
-   reply:
+A corresponding XML instance example of the complete rpc and rpc-
+reply:
 
-     <rpc message-id="101"
+   <rpc message-id="101"
           xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
        <rock-the-house xmlns="http://example.net/rock">
          <zip-code>27606-0100</zip-code>
